@@ -1,0 +1,95 @@
+server_id = "mcp_education"
+display_name = "Education"
+version = "1.0.0"
+domain = "education"
+sdk_version = "0.1.0"
+risk_level = "medium"
+writes_allowed = "gated"
+transports = ["stdio"]
+credentials = ["vault://canvas-token"]
+governance_gates = []
+environments = ["development", "staging", "production"]
+
+[[tools]]
+name = "list_courses"
+description = "List all courses for the authenticated user"
+risk_class = "read_only"
+requires_approval = false
+credential_bindings = ["vault://canvas-token"]
+
+[[tools]]
+name = "get_course"
+description = "Get course details including syllabus and enrollment count"
+risk_class = "read_only"
+requires_approval = false
+credential_bindings = ["vault://canvas-token"]
+
+[[tools]]
+name = "list_assignments"
+description = "List all assignments for a course"
+risk_class = "read_only"
+requires_approval = false
+credential_bindings = ["vault://canvas-token"]
+
+[[tools]]
+name = "get_assignment"
+description = "Get assignment details including rubric and submissions summary"
+risk_class = "read_only"
+requires_approval = false
+credential_bindings = ["vault://canvas-token"]
+
+[[tools]]
+name = "create_assignment"
+description = "Create a new assignment in a course"
+risk_class = "internal_write"
+requires_approval = true
+credential_bindings = ["vault://canvas-token"]
+
+[[tools]]
+name = "list_students"
+description = "List students enrolled in a course"
+risk_class = "read_only"
+requires_approval = false
+credential_bindings = ["vault://canvas-token"]
+
+[[tools]]
+name = "get_submissions"
+description = "Get submissions for an assignment (all students)"
+risk_class = "read_only"
+requires_approval = false
+credential_bindings = ["vault://canvas-token"]
+
+[[tools]]
+name = "grade_submission"
+description = "Grade a student submission"
+risk_class = "internal_write"
+requires_approval = true
+credential_bindings = ["vault://canvas-token"]
+
+[[tools]]
+name = "post_announcement"
+description = "Post an announcement to a course"
+risk_class = "internal_write"
+requires_approval = true
+credential_bindings = ["vault://canvas-token"]
+
+[[tools]]
+name = "get_course_analytics"
+description = "Get course grades/analytics summary"
+risk_class = "read_only"
+requires_approval = false
+credential_bindings = ["vault://canvas-token"]
+
+[[tools]]
+name = "list_modules"
+description = "List modules (content structure) for a course"
+risk_class = "read_only"
+requires_approval = false
+credential_bindings = ["vault://canvas-token"]
+
+[[tools]]
+name = "search_course_content"
+description = "Search course content (pages, assignments, discussions)"
+risk_class = "read_only"
+requires_approval = false
+credential_bindings = ["vault://canvas-token"]
