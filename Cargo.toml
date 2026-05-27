@@ -2,7 +2,7 @@
 
 [package]
 name = "mcp-education"
-version = "1.0.0"
+version = "1.0.1"
 edition = "2024"
 description = "Education LMS MCP server — courses, assignments, grades, students, announcements via Canvas LMS and generic LMS APIs"
 license = "Apache-2.0"
