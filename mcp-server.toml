@@ -2,12 +2,12 @@ server_id = "mcp_education"
 display_name = "Education"
 version = "1.0.1"
 domain = "education"
-sdk_version = "0.1.0"
+sdk_version = "0.2.0"
 risk_level = "medium"
 writes_allowed = "gated"
 transports = ["stdio"]
 credentials = ["vault://canvas-token"]
-governance_gates = []
+governance_gates = ["mrtr_approval"]
 environments = ["development", "staging", "production"]
 
 [[tools]]

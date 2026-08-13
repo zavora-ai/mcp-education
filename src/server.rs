@@ -99,7 +99,7 @@ impl EducationServer {
     }
 }
 
-#[tool_router(server_handler)]
+#[tool_router]
 impl EducationServer {
     #[tool(description = "List all courses for the authenticated user")]
     async fn list_courses(&self, Parameters(_input): Parameters<EmptyInput>) -> String {
@@ -217,4 +217,11 @@ impl EducationServer {
             Err(e) => format!("Error: {e}"),
         }
     }
+}
+
+adk_mcp_sdk::mcp_2026_server! {
+    server: EducationServer,
+    task_tools: [],
+    approval_tools: ["create_assignment", "grade_submission", "post_announcement"],
+    cache_ttl_ms: 60_000,
 }
